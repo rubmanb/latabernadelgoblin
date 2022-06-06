@@ -31,9 +31,7 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
             child: IconButton(
               icon: const Icon(Icons.camera_alt),
-              onPressed: () {
-                _showPickerOptions(context);
-              },
+              onPressed: () {},
               iconSize: 90,
             ),
           ),
@@ -61,14 +59,14 @@ class _RegisterPageState extends State<RegisterPage> {
                       children: <Widget>[
                         TextFormField(
                           decoration:
-                              const InputDecoration(labelText: "Usuario"),
+                              const InputDecoration(labelText: "Usuario(*)"),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          decoration:
-                              const InputDecoration(labelText: "Constraseña"),
+                          decoration: const InputDecoration(
+                              labelText: "Constraseña(*)"),
                           obscureText: true,
                         ),
                         const SizedBox(
@@ -76,21 +74,22 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         TextFormField(
                           decoration: const InputDecoration(
-                              labelText: "Repetir Constraseña"),
+                              labelText: "Repetir Constraseña(*)"),
                           obscureText: true,
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
-                          decoration: const InputDecoration(labelText: "Email"),
+                          decoration:
+                              const InputDecoration(labelText: "Email(*)"),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
                         TextFormField(
                           decoration:
-                              const InputDecoration(labelText: "Dirección"),
+                              const InputDecoration(labelText: "Dirección(*)"),
                         ),
                         const SizedBox(height: 10),
                         SizedBox(
@@ -130,19 +129,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            const Text(
-                              '¿No estás registrado?',
-                            ),
-                            TextButton(
-                              style: TextButton.styleFrom(
-                                primary: Colors.green,
-                                onSurface: Colors.red,
-                              ),
-                              onPressed: () {
-                                _showRegisterPage(context);
-                              },
-                              child: const Text('Registrarse'),
+                          children: const <Widget>[
+                            Text(
+                              'Los (*) son campos obligatorios',
                             ),
                           ],
                         ),
@@ -195,6 +184,4 @@ class _RegisterPageState extends State<RegisterPage> {
   void _showRegisterPage(BuildContext context) {
     Navigator.of(context).pushNamed("/register");
   }
-
-  void _showPickerOptions(BuildContext context) {}
 }
