@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
 
 class Description extends StatelessWidget {
@@ -13,7 +11,7 @@ class Description extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Text(
-        product.description,
+        "${product.descripcion}",
         style: const TextStyle(height: 1.5),
       ),
     );

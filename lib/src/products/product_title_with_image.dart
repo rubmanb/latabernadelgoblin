@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
 
 class product_title_with_image extends StatelessWidget {
@@ -19,7 +16,7 @@ class product_title_with_image extends StatelessWidget {
       child: Column(
         children: <Widget>[
           Text(
-            product.title,
+            "${product.title}",
             style: const TextStyle(color: Colors.white, fontSize: 25),
           ),
           Row(
@@ -38,7 +35,7 @@ class product_title_with_image extends StatelessWidget {
               ),
               Expanded(
                 child: Image.asset(
-                  product.image,
+                  "${product.image}",
                   height: 250,
                   width: 100,
                 ),

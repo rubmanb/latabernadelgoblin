@@ -1,21 +1,94 @@
+import 'package:firebase_database/firebase_database.dart';
+
 class Product {
-  final String image, title, description, name, type, jugadores;
-  final int stock, id;
-  final double price;
+  final String? image,
+      title,
+      descripcion,
+      name,
+      type,
+      jugadores,
+      id,
+      stock,
+      price;
+
+  final dbRef = FirebaseDatabase.instance.ref();
 
   Product(
-      {required this.image,
-      required this.title,
-      required this.description,
-      required this.name,
-      required this.type,
-      required this.price,
-      required this.stock,
-      required this.id,
-      required this.jugadores});
+      {this.image,
+      this.title,
+      this.descripcion,
+      this.name,
+      this.type,
+      this.price,
+      this.stock,
+      this.id,
+      this.jugadores});
+
+  factory Product.fromMap(Map<dynamic, String> map) => Product(
+      //constructor de products Map
+      descripcion: map['descripcion'],
+      name: map['nombre'],
+      title: map['titulo'],
+      type: map['tipo'],
+      image: map['imagen'],
+      jugadores: map['jugadores'],
+      id: map['id'],
+      price: map['precio'],
+      stock: map['stock']);
+
+  Map<String, dynamic> toSetMap() {
+    return {
+      'id': id,
+      'descripcion': descripcion,
+      'image': image,
+      'name': name,
+      'title': title,
+      'jugadores': jugadores,
+      'price': price,
+      'stock': stock,
+      'type': type,
+    };
+  }
+
+  List<Product> products_list = [];
+
+  List<Product> getProductsFromRealtime() {
+    dbRef.child("Products").once().then((value) {
+      print(value.snapshot.value);
+      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      List items = value.snapshot.value as List;
+      print("11111111111111111111111111111111111");
+      //Product.fromMap(items as Map<dynamic, String>);
+
+      for (var i = 0; i < items.length; i++) {
+        products_list.add(Product(
+          image: items[i],
+          descripcion: items[i],
+          title: items[i],
+          name: items[i],
+          type: items[i],
+          price: items[i],
+          stock: items[i],
+          jugadores: items[i],
+        ));
+      }
+
+      /*for (var element in items) {
+        products_list.add(element as Product);
+      }*/
+      print("BBBBBBBBBBBBBBBBBBB");
+    });
+
+    print(products_list.length);
+    return products_list;
+  }
+
+  /*void toList(){
+    return 
+  }*/
 }
 
-List<Product> products = [
+/*List<Product> products = [
   Product(
       image: "assets/images/zombicide-friends-and-foes.jpg",
       title: "Zombicide BlackPlague",
@@ -84,4 +157,4 @@ List<Product> products = [
       stock: 3,
       id: 5642278,
       jugadores: "2")
-];
+];*/

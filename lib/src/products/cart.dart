@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
 
 class Cart {
@@ -9,7 +8,7 @@ class Cart {
 }
 
 List<Cart> cart = [
-  Cart(product: products[0], numProducts: 2),
-  Cart(product: products[1], numProducts: 1),
-  Cart(product: products[2], numProducts: 2),
+  Cart(product: Product().products_list[0], numProducts: 2),
+  Cart(product: Product().products_list[1], numProducts: 1),
+  Cart(product: Product().products_list[2], numProducts: 2),
 ];

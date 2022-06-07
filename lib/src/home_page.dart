@@ -1,10 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'dart:js';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:latabernadelgoblin/login/register_page.dart';
 import 'package:latabernadelgoblin/src/body_home.dart';
 import 'package:latabernadelgoblin/src/init_page.dart';

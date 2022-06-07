@@ -1,6 +1,3 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:latabernadelgoblin/src/products/details.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
@@ -32,8 +29,8 @@ class itemProducts extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => DetailsScreen(
-            product:
-                products[4], // añadir un index per a la llista de productes
+            product: Product().products_list[
+                4], // añadir un index per a la llista de productes
           ),
         ),
       ),
@@ -49,13 +46,14 @@ class itemProducts extends StatelessWidget {
                 color: Colors.green,
                 borderRadius: BorderRadius.circular(16),
               ),
-              child: Image.asset(product.image), //imatge del cos del producte
+              child:
+                  Image.asset("${product.image}"), //imatge del cos del producte
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 5),
             child: Text(
-              product.title,
+              "${product.title}",
               style: const TextStyle(color: Colors.deepOrange),
             ),
           ),

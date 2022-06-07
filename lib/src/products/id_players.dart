@@ -18,7 +18,7 @@ class id_players extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Text("ID: ${product.id}"),
-              Text(product.type),
+              Text("${product.type}"),
               const SizedBox(
                 height: 10,
               ),

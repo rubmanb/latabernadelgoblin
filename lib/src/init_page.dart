@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:latabernadelgoblin/login/Login.dart';
 
 class InitPage extends StatelessWidget {
   const InitPage({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "886287501787",
+    "firebase_url": "https://flutter-latabernadelgoblin-default-rtdb.firebaseio.com",
     "project_id": "flutter-latabernadelgoblin",
     "storage_bucket": "flutter-latabernadelgoblin.appspot.com"
   },

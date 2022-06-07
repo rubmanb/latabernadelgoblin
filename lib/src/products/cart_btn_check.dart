@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:latabernadelgoblin/src/products/body_cart.dart';
 import 'package:latabernadelgoblin/src/products/cart.dart';
-import 'package:latabernadelgoblin/src/products/cart_list.dart';
 import 'package:latabernadelgoblin/src/products/payment.dart';
 
 class CartButtonCheck extends StatelessWidget {
@@ -94,7 +92,7 @@ class CartButtonCheck extends StatelessWidget {
     double precioUnidad = 0;
     int unidadesTotales = 0;
     for (var i = 0; i < cart.length; i++) {
-      precioUnidad = cart[i].product.price;
+      precioUnidad = cart[i].product.price as double;
       unidadesTotales = cart[i].numProducts;
       total += (precioUnidad * unidadesTotales);
     }

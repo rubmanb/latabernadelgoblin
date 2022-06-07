@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:latabernadelgoblin/src/products/categories.dart';
 import 'package:latabernadelgoblin/src/products/details.dart';
@@ -28,18 +26,18 @@ class BodyHome extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GridView.builder(
-              itemCount: products.length,
+              itemCount: Product().products_list.length,
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75,
                   mainAxisSpacing: 20),
               itemBuilder: (context, index) => itemProducts(
-                product: products[index],
+                product: Product().products_list[index],
                 press: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsScreen(
-                      product: products[index],
+                      product: Product().products_list[index],
                     ),
                   ),
                 ),

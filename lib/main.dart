@@ -1,13 +1,13 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:latabernadelgoblin/login/Login.dart';
 import 'package:latabernadelgoblin/src/home_page.dart';
 import 'package:latabernadelgoblin/src/init_page.dart';
 import 'package:latabernadelgoblin/login/register_page.dart';
 import 'package:latabernadelgoblin/src/products/cart_counter.dart';
-import 'package:latabernadelgoblin/src/products/cart_page.dart';
+import 'package:latabernadelgoblin/src/products/products.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -43,10 +43,17 @@ class LaTabernaDelGoblinApp extends StatefulWidget {
 
 class _LaTabernaDelGoblinAppState extends State<LaTabernaDelGoblinApp> {
   @override
+  void initState() {
+    super.initState();
+    Product().getProductsFromRealtime();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<CartCounterState>(
       create: (_) => CartCounterState(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: "La Taberna del Goblín",
         //home: InitPage(),
         theme: ThemeData(

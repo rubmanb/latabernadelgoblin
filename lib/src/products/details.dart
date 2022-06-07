@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:latabernadelgoblin/src/products/body_product.dart';
 import 'package:latabernadelgoblin/src/products/cart_page.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
@@ -20,7 +18,7 @@ class DetailsScreen extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(product.name),
+      title: Text("${product.name}"),
       backgroundColor: const Color.fromARGB(200, 10, 150, 20),
       elevation: 0,
       leading: IconButton(

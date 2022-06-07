@@ -22,7 +22,7 @@ class cart_list extends StatelessWidget {
                 color: Color.fromARGB(255, 176, 244, 99),
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Image.asset(cart.product.image),
+              child: Image.asset("${cart.product.image}"),
             ),
           ),
         ),
@@ -33,7 +33,7 @@ class cart_list extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              cart.product.title,
+              "${cart.product.title}",
               style: const TextStyle(fontSize: 20),
               maxLines: 2,
             ),
