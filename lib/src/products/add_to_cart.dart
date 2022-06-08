@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:latabernadelgoblin/src/products/cart.dart';
+import 'package:latabernadelgoblin/src/products/cart_counter.dart';
+import 'package:latabernadelgoblin/src/products/cart_list.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
+import 'package:provider/provider.dart';
 
 class AddToCart extends StatelessWidget {
   const AddToCart({Key? key, required this.product}) : super(key: key);
@@ -33,7 +37,9 @@ class AddToCart extends StatelessWidget {
                   onPrimary: Colors.white,
                 ),
                 //añade el producto a la lista del carrito (cart)
-                onPressed: () {},
+                onPressed: () {
+                  addProductToCart();
+                },
                 child: const Text(
                   "Comprar",
                   style: TextStyle(
@@ -47,5 +53,9 @@ class AddToCart extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  addProductToCart() {
+    Cart(product: products_list[1], numProducts: CartCounterState().countItems);
   }
 }

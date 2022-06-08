@@ -3,15 +3,8 @@ import 'dart:collection';
 import 'package:firebase_database/firebase_database.dart';
 
 class Product {
-  final String? image,
-      title,
-      descripcion,
-      name,
-      type,
-      jugadores,
-      id,
-      stock,
-      price;
+  final String? image, title, descripcion, name, type, jugadores, id, stock;
+  final int? price;
 
   final dbRef = FirebaseDatabase.instance.ref();
 
@@ -71,7 +64,7 @@ class Product {
                 descripcion: item["descripcion"],
                 name: item["nombre"],
                 type: item["tipo"],
-                price: item["precio"],
+                price: item["precio"] as int,
                 stock: item["stock"],
                 id: item["id"],
                 jugadores: item["jugadores"]));

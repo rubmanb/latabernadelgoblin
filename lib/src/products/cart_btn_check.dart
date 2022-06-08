@@ -87,12 +87,12 @@ class CartButtonCheck extends StatelessWidget {
   /* CALCULA EL PRECIO DE LA COMPRA TOTAL
     precio_unidad * la cantidad de unidades comprada de cada producto en la lista
    */
-  double _costeTotalCompra() {
-    double total = 0;
-    double precioUnidad = 0;
+  int _costeTotalCompra() {
+    int total = 0;
+    int precioUnidad = 0;
     int unidadesTotales = 0;
     for (var i = 0; i < cart.length; i++) {
-      precioUnidad = cart[i].product.price as double;
+      precioUnidad = cart[i].product.price as int;
       unidadesTotales = cart[i].numProducts;
       total += (precioUnidad * unidadesTotales);
     }

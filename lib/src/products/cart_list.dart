@@ -39,7 +39,7 @@ class cart_list extends StatelessWidget {
             ),
             Text.rich(
               TextSpan(
-                text: "${cart.product.price as double} €\n",
+                text: "${cart.product.price} €\n",
                 style: const TextStyle(
                   fontWeight: FontWeight.w800,
                   color: Color.fromARGB(255, 22, 83, 215),

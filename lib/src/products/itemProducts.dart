@@ -4,36 +4,15 @@ import 'package:latabernadelgoblin/src/products/products.dart';
 
 class itemProducts extends StatelessWidget {
   final Product product;
-  final Function press;
+  final Function() press;
 
   itemProducts({Key? key, required this.product, required this.press})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    /* => onTap: press => ...
-    press: (context, index) => itemProducts(
-        product: products[index],
-        press: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => DetailsScreen(
-              product: products[index],
-            ),
-          ),
-        ),
-      ),
-     */
     return GestureDetector(
-      onTap: () => Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => DetailsScreen(
-            product: products_list[
-                4], // añadir un index per a la llista de productes
-          ),
-        ),
-      ),
+      onTap: press,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
