@@ -26,18 +26,18 @@ class BodyHome extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GridView.builder(
-              itemCount: Product().products_list.length,
+              itemCount: products_list.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75,
                   mainAxisSpacing: 20),
               itemBuilder: (context, index) => itemProducts(
-                product: Product().products_list[index],
+                product: products_list[index],
                 press: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => DetailsScreen(
-                      product: Product().products_list[index],
+                      product: products_list[index],
                     ),
                   ),
                 ),

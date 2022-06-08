@@ -26,53 +26,22 @@ class Product {
       this.id,
       this.jugadores});
 
-  factory Product.fromMap(Map<String, dynamic> map) => Product(
-      //constructor de products Map
-      descripcion: map['descripcion'],
-      name: map['nombre'],
-      title: map['titulo'],
-      type: map['tipo'],
-      image: map['imagen'],
-      jugadores: map['jugadores'],
-      id: map['id'],
-      price: map['precio'],
-      stock: map['stock']);
-
-  Map<String, dynamic> toSetMap(Product p) {
-    return {
-      'id': p.id,
-      'descripcion': p.descripcion,
-      'image': p.image,
-      'name': p.name,
-      'title': p.title,
-      'jugadores': p.jugadores,
-      'price': p.price,
-      'stock': p.stock,
-      'type': p.type,
-    };
-  }
-
-  List<Product> products_list = [];
+  //List<Product> products_list = [];
   var items = [];
 
+  /*
+    Recoge los datos de Realtime DB y los devuelve como una lista Object de la clase
+   */
   List<Product> getProductsFromRealtime() {
     Map<String, dynamic> itemProductMap;
     dbRef.child("Products").once().then((value) {
-      print(value.snapshot.value);
-      print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+      //print(value.snapshot.value);
+
+      //Cojo los valores(datos) de la base de datos
       List items = value.snapshot.value as List;
-      print("11111111111111111111111111111111111");
 
-      //items.asMap();
-      print("22222222222222222");
-      print(items);
-      print("------------------------");
-
-      /*for (var i = 1; i < items.length; i++) {
-        itemProductMap = toSetMap(items[i]);
-        products_list.add(Product.fromMap(itemProductMap));
-      }*/
-
+      //print(items);
+      // Recorro el json y los voy añadiendo a la lista
       if (items != null) {
         items.forEach((item) {
           if (item != null) {
@@ -115,12 +84,9 @@ class Product {
 
     return products_list;
   }
-
-  /*void toList(){
-    return 
-  }*/
 }
 
+List<Product> products_list = [];
 /*List<Product> products = [
   Product(
       image: "assets/images/zombicide-friends-and-foes.jpg",

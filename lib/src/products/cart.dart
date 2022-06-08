@@ -8,7 +8,7 @@ class Cart {
 }
 
 List<Cart> cart = [
-  Cart(product: Product().products_list[0], numProducts: 2),
-  Cart(product: Product().products_list[1], numProducts: 1),
-  Cart(product: Product().products_list[2], numProducts: 2),
+  Cart(product: products_list[0], numProducts: 2),
+  Cart(product: products_list[1], numProducts: 1),
+  Cart(product: products_list[2], numProducts: 2),
 ];

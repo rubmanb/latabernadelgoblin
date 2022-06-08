@@ -29,7 +29,7 @@ class itemProducts extends StatelessWidget {
         context,
         MaterialPageRoute(
           builder: (context) => DetailsScreen(
-            product: Product().products_list[
+            product: products_list[
                 4], // añadir un index per a la llista de productes
           ),
         ),
