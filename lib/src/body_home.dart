@@ -27,7 +27,7 @@ class BodyHome extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: GridView.builder(
               itemCount: Product().products_list.length,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   childAspectRatio: 0.75,
                   mainAxisSpacing: 20),

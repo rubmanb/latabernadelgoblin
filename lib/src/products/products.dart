@@ -1,3 +1,5 @@
+import 'dart:collection';
+
 import 'package:firebase_database/firebase_database.dart';
 
 class Product {
@@ -24,7 +26,7 @@ class Product {
       this.id,
       this.jugadores});
 
-  factory Product.fromMap(Map<dynamic, String> map) => Product(
+  factory Product.fromMap(Map<String, dynamic> map) => Product(
       //constructor de products Map
       descripcion: map['descripcion'],
       name: map['nombre'],
@@ -36,50 +38,81 @@ class Product {
       price: map['precio'],
       stock: map['stock']);
 
-  Map<String, dynamic> toSetMap() {
+  Map<String, dynamic> toSetMap(Product p) {
     return {
-      'id': id,
-      'descripcion': descripcion,
-      'image': image,
-      'name': name,
-      'title': title,
-      'jugadores': jugadores,
-      'price': price,
-      'stock': stock,
-      'type': type,
+      'id': p.id,
+      'descripcion': p.descripcion,
+      'image': p.image,
+      'name': p.name,
+      'title': p.title,
+      'jugadores': p.jugadores,
+      'price': p.price,
+      'stock': p.stock,
+      'type': p.type,
     };
   }
 
   List<Product> products_list = [];
+  var items = [];
 
   List<Product> getProductsFromRealtime() {
+    Map<String, dynamic> itemProductMap;
     dbRef.child("Products").once().then((value) {
       print(value.snapshot.value);
       print("aaaaaaaaaaaaaaaaaaaaaaaaaaaa");
       List items = value.snapshot.value as List;
       print("11111111111111111111111111111111111");
-      //Product.fromMap(items as Map<dynamic, String>);
 
-      for (var i = 0; i < items.length; i++) {
-        products_list.add(Product(
-          image: items[i],
-          descripcion: items[i],
-          title: items[i],
-          name: items[i],
-          type: items[i],
-          price: items[i],
-          stock: items[i],
-          jugadores: items[i],
-        ));
-      }
+      //items.asMap();
+      print("22222222222222222");
+      print(items);
+      print("------------------------");
 
-      /*for (var element in items) {
-        products_list.add(element as Product);
+      /*for (var i = 1; i < items.length; i++) {
+        itemProductMap = toSetMap(items[i]);
+        products_list.add(Product.fromMap(itemProductMap));
       }*/
-      print("BBBBBBBBBBBBBBBBBBB");
+
+      if (items != null) {
+        items.forEach((item) {
+          if (item != null) {
+            /*Sprint("Titulo\n");
+            print(item["titulo"].runtimeType);
+            print("ID\n");
+            print(item["id"].runtimeType);
+            print("Name\n");
+            print(item["nombre"]);
+            print("Type\n");
+            print(item["tipo"]);
+            print("Precio\n");
+            print(item["precio"].runtimeType);
+            print("Descripcion\n");
+            print(item["descripcion"].runtimeType);
+            print("Jugadores\n");
+            print(item["jugadores"].runtimeType);
+            print("Stock\n");
+            print(item["stock"].runtimeType);
+            print("Imagen\n");
+            print(item["imagen"]
+                .runtimeType);*/ // Millor alguna d'Internet, no de assets
+
+            products_list.add(Product(
+                image: item["imagen"],
+                title: item["titulo"],
+                descripcion: item["descripcion"],
+                name: item["nombre"],
+                type: item["tipo"],
+                price: item["precio"],
+                stock: item["stock"],
+                id: item["id"],
+                jugadores: item["jugadores"]));
+          }
+
+          ///print(products_list.length);
+        });
+      }
     });
 
-    print(products_list.length);
     return products_list;
   }
 
