@@ -91,9 +91,9 @@ class CartButtonCheck extends StatelessWidget {
     int total = 0;
     int precioUnidad = 0;
     int unidadesTotales = 0;
-    for (var i = 0; i < cart.length; i++) {
-      precioUnidad = cart[i].product.price as int;
-      unidadesTotales = cart[i].numProducts;
+    for (var i = 0; i < cartList.length; i++) {
+      precioUnidad = cartList[i].product.price as int;
+      unidadesTotales = cartList[i].numProducts;
       total += (precioUnidad * unidadesTotales);
     }
     return total;

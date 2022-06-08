@@ -15,9 +15,9 @@ class _BodyCartState extends State<BodyCart> {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 20),
       child: ListView.builder(
-        itemCount: cart.length,
+        itemCount: cartList.length,
         itemBuilder: (context, index) => Dismissible(
-            key: Key(cart[0].product.id.toString()),
+            key: Key(cartList[0].product.id.toString()),
             direction: DismissDirection.endToStart,
             background: Container(
               padding: EdgeInsets.symmetric(vertical: 10),
@@ -34,10 +34,10 @@ class _BodyCartState extends State<BodyCart> {
             ),
             onDismissed: (direction) {
               setState(() {
-                cart.removeAt(index);
+                cartList.removeAt(index);
               });
             },
-            child: cart_list(cart: cart[index])),
+            child: cart_list(cart: cartList[index])),
       ),
     );
   }

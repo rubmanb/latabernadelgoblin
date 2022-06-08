@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:latabernadelgoblin/src/products/cart.dart';
 import 'package:latabernadelgoblin/src/products/cart_counter.dart';
 import 'package:latabernadelgoblin/src/products/cart_list.dart';
+import 'package:latabernadelgoblin/src/products/cart_page.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
 import 'package:provider/provider.dart';
 
@@ -25,7 +26,10 @@ class AddToCart extends StatelessWidget {
             ),
             child: IconButton(
               icon: const Icon(Icons.add_shopping_cart),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => CartPage()));
+              },
             ),
           ),
           Expanded(
@@ -55,7 +59,19 @@ class AddToCart extends StatelessWidget {
     );
   }
 
+  //metodo para añadir productos al carrito
   addProductToCart() {
-    Cart(product: products_list[1], numProducts: CartCounterState().countItems);
+    cartList.add(Cart(
+        product: products_list[1],
+        numProducts: CartCounterState().getNumProduct()));
+    print("Se ha añadido un producto a la lista");
   }
+
+  /*int numItems() {
+    int numItem;
+    numItem = Provider<int>.value(
+      value: CartCounterState().countItems,
+    ) as int;
+    return numItem;
+  }*/
 }

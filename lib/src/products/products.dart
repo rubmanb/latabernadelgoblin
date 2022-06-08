@@ -74,7 +74,7 @@ class Product {
         });
       }
     });
-
+    print("Se han insertado los datos de la BD a la lista correctamente");
     return products_list;
   }
 }

@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -35,7 +36,7 @@ class CartCounterState extends State<CartCounter> with ChangeNotifier {
           child: FloatingActionButton(
             onPressed: () {
               _decrementCounter();
-              //getNumProduct();
+              getNumProduct();
             },
             child: const Icon(Icons.remove),
             backgroundColor: Colors.green,
@@ -55,7 +56,7 @@ class CartCounterState extends State<CartCounter> with ChangeNotifier {
           child: FloatingActionButton(
             onPressed: () {
               _incrementCounter();
-              //getNumProduct();
+              getNumProduct();
             },
             child: const Icon(Icons.add),
             backgroundColor: Colors.green,
@@ -69,19 +70,21 @@ class CartCounterState extends State<CartCounter> with ChangeNotifier {
   void _incrementCounter() {
     setState(() {
       countItems++;
+      //getNumProduct();
     });
   }
 
   void _decrementCounter() {
     setState(() {
       countItems--;
+      //getNumProduct();
     });
   }
 
-  /*int getNumProduct() {
+  int getNumProduct() {
     if (kDebugMode) {
-      print("Has elegido: ${countItems} productos");
+      print("Has elegido: $countItems productos");
     }
     return countItems;
-  }*/
+  }
 }

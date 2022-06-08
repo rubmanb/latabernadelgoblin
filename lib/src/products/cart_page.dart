@@ -24,7 +24,7 @@ class CartPage extends StatelessWidget {
             style: TextStyle(color: Colors.white),
           ),
           Text(
-            "${cart.length} Productos",
+            "${cartList.length} Productos",
             style: Theme.of(context).textTheme.caption,
           ),
         ],
