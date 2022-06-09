@@ -12,9 +12,9 @@ class CartCounter extends StatefulWidget {
 class CartCounterState extends State<CartCounter> with ChangeNotifier {
   int countItems = 1;
 
-  int get CartCounter => countItems;
+  int get getCartCounter => countItems;
 
-  set CartCounter(int value) {
+  set setCartCounter(int value) {
     countItems = value;
     notifyListeners();
   }

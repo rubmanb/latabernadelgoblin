@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:latabernadelgoblin/src/body_home.dart';
 import 'package:latabernadelgoblin/src/products/cart.dart';
 import 'package:latabernadelgoblin/src/products/cart_counter.dart';
 import 'package:latabernadelgoblin/src/products/cart_list.dart';
@@ -7,9 +8,12 @@ import 'package:latabernadelgoblin/src/products/products.dart';
 import 'package:provider/provider.dart';
 
 class AddToCart extends StatelessWidget {
-  const AddToCart({Key? key, required this.product}) : super(key: key);
+  AddToCart({Key? key, required this.product}) : super(key: key);
 
   final Product product;
+
+  int n_index = 0;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -61,8 +65,10 @@ class AddToCart extends StatelessWidget {
 
   //metodo para añadir productos al carrito
   addProductToCart() {
+    int n = BodyHomeState().itemPressed(n_index); // Error: => 0
+    print(n);
     cartList.add(Cart(
-        product: products_list[1],
+        product: products_list[n],
         numProducts: CartCounterState().getNumProduct()));
     print("Se ha añadido un producto a la lista");
   }

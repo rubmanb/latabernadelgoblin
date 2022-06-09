@@ -3,9 +3,11 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:latabernadelgoblin/login/Login.dart';
+import 'package:latabernadelgoblin/src/body_home.dart';
 import 'package:latabernadelgoblin/src/home_page.dart';
 import 'package:latabernadelgoblin/src/init_page.dart';
 import 'package:latabernadelgoblin/login/register_page.dart';
+import 'package:latabernadelgoblin/src/products/add_to_cart.dart';
 import 'package:latabernadelgoblin/src/products/cart_counter.dart';
 import 'package:latabernadelgoblin/src/products/products.dart';
 import 'package:provider/provider.dart';
@@ -50,8 +52,11 @@ class _LaTabernaDelGoblinAppState extends State<LaTabernaDelGoblinApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CartCounterState>(
-      create: (_) => CartCounterState(),
+    return MultiProvider(
+      providers: [
+        Provider<CartCounterState>(create: (_) => CartCounterState()),
+        Provider<BodyHomeState>(create: (_) => BodyHomeState()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: "La Taberna del Goblín",
