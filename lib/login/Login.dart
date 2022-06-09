@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
-  static String id = 'login';
-
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -82,14 +80,6 @@ class _LoginPageState extends State<LoginPage> {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
-                                /*if (_loading){
-                                  Container(
-                                    height: 20,
-                                    width: 20,
-                                    margin: EdgeInsets.only(left:20),
-                                    child: CircularProgressIndicator(),
-                                  ),
-                                },*/
                               ],
                             ),
                           ),

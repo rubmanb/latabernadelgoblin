@@ -84,14 +84,6 @@ class Tournament extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       fontSize: 20),
                                 ),
-                                /*if (_loading){
-                                  Container(
-                                    height: 20,
-                                    width: 20,
-                                    margin: EdgeInsets.only(left:20),
-                                    child: CircularProgressIndicator(),
-                                  ),
-                                },*/
                               ],
                             ),
                           ),

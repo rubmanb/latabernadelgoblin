@@ -9,7 +9,6 @@ class CartButtonCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cart cart;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 15, horizontal: 30),
       height: 174,

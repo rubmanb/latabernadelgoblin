@@ -4,8 +4,6 @@ import 'package:latabernadelgoblin/src/products/cart.dart';
 import 'package:latabernadelgoblin/src/products/cart_btn_check.dart';
 
 class CartPage extends StatelessWidget {
-  double total = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

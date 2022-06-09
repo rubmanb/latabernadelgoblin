@@ -77,30 +77,3 @@ class _LaTabernaDelGoblinAppState extends State<LaTabernaDelGoblinApp> {
     );
   }
 }
-
-/*body: StreamBuilder( // -----VER LAS COLECCIONES DE FIRESTORE
-          stream:
-              FirebaseFirestore.instance.collection('productos').snapshots(),
-          builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-            if (!snapshot.hasData) {
-              return const Center(
-                child: CircularProgressIndicator(),
-              );
-            }
-            List<DocumentSnapshot> doc = snapshot.data!.docs;
-            return ListView.builder(
-              itemCount: doc.length,
-              itemBuilder: (context, index) {
-                Map<String, dynamic> datos =
-                    doc[index].data as Map<String, dynamic>;
-                return ListTile(
-                  leading: Checkbox(
-                    value: datos['nombre'],
-                    onChanged: (bool? value) {},
-                  ),
-                  title: Text(datos['tipo']),
-                );
-              },
-            );
-          },
-        ),*/
